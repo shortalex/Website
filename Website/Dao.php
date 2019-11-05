@@ -19,7 +19,7 @@ class Dao {
   public function getComments() {
     $conn = $this->getConnection();
     try {
-    return $conn->query("select comment_id, comment, date_entered  from comment order by date_entered desc", PDO::FETCH_ASSOC);
+    return $conn->query("select ChatID, Username, Chat, PostDate from comment order by date_entered desc", PDO::FETCH_ASSOC);
     } catch(Exception $e) {
       echo print_r($e,1);
       exit;
@@ -35,11 +35,12 @@ class Dao {
         return $valid;
     }
     
-  public function saveComment ($comment) {
+  public function saveComment ($user_name, $comment) {
     $conn = $this->getConnection();
-    $saveQuery = "insert into chat (Chat) values (:comment)";
+    $saveQuery = "insert into chat (Username, Chat) values (:username, :comment)";
     $q = $conn->prepare($saveQuery);
-    $q->bindParam(":comment", $comment);
+    $q->bindParam(":username", $user_name);
+      $q->bindParam(":comment", $comment);
     $q->execute();
   }
     

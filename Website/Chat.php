@@ -36,7 +36,7 @@
     <?php
     if (isset($_SESSION['messages'])) {
        foreach ($_SESSION['messages'] as $message) {
-         echo "<div class='message {$_SESSION['sentiment']}'>{$message}</div>";
+         echo "<div class='message {$_SESSION['sentiment']['user_name']}'>{$message}</div>";
        }
     }
 
