@@ -1,7 +1,3 @@
-<?php
-  session_start();
-  echo ($_SESSION['log_message']);
-?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -34,6 +30,10 @@
         <li class="Invite"><a href="Invite.php">Invite</a></li>
       </ul>
     </div>
+<?php
+  session_start();
+  echo ($_SESSION['log_message']);
+?>
     <img id="i01" src="idaho-google-maps-18.gif" alt="Map of Idaho" width="90%" height="100%">
 </body>
 <footer>Copyright @ 2019 | alexharris@u.boisestate.edu</footer>

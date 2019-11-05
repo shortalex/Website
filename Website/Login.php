@@ -1,8 +1,3 @@
-<?php
-  session_start();
-  echo ($_SESSION['notlog_message']);
-  echo ($_SESSION['log_message']);
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 <html>
@@ -29,14 +24,19 @@
     <li class="Play now"><a href="PlayNow.php">Play Now</a></li>
   </ul>
 </div>
-
+<?php
+  session_start();
+  echo ($_SESSION['notlog_message']);
+  echo ($_SESSION['log_message']);
+    echo ($_SESSION['messages']);
+?>
 <h2>Login</h2>
 <div class="form">
         <form method="POST" action="login_handler.php">
           <div>LOGIN</div>
-          <input type="text" name="username" placeholder="Username"/>
+          <input type="text" name="username" placeholder="Username" value="<?php if(isset($_SESSION['user_name'])) { echo htmlentities ($_SESSION['user_name']); }?>" required/>
           <div>PASSWORD</div>
-          <div><input type="password" name="password" placeholder="Password"/></div>
+          <div><input type="password" name="password" placeholder="Password" required/></div>
           <div><button class="submit">Login</button></div>
         </form>
 </div>

@@ -1,7 +1,3 @@
-<?php
-  session_start();
-  echo ($_SESSION['log_message']);
-?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -34,7 +30,10 @@
       <li class="Invite"><a class="active" href="Invite.php">Invite</a></li>
     </ul>
   </div>
-
+<?php
+  session_start();
+  echo ($_SESSION['log_message']);
+?>
 <h2>Search Board Games</h2>
 <div class="form">
     <form name="Form1" action="mypage.asp" method="get">

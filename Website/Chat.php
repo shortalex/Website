@@ -1,12 +1,9 @@
-<?php
-  session_start();
-  echo ($_SESSION['log_message']);
-?>
 
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <link href="favicon.ico" type="image/ico" rel="shortcut icon">
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="/favicon.png" />
   <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="reference.css">
   <title>Chat</title>
@@ -26,7 +23,10 @@
     <li class="Play now"><a href="PlayNow.php">Play Now</a></li>
   </ul>
 </div>
-
+<?php
+  session_start();
+  echo ($_SESSION['log_message']);
+?>
 <h2>Chat</h2>
 <form action="comment_handler.php" method="post">
       <div>Leave a comment</div>

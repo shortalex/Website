@@ -1,7 +1,3 @@
-<?php
-  session_start();
-  echo ($_SESSION['log_message']);
-?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -35,7 +31,10 @@
       <li class="Browse Board Games"><a href="BrowseBoardGames.php">Browse Board Games</a></li>
     </ul>
   </div>
-
+<?php
+  session_start();
+  echo ($_SESSION['log_message']);
+?>
 <h2>Top Board Games</h2>
 <table id="t01">
   <tr>

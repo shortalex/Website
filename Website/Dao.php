@@ -55,13 +55,28 @@ class Dao {
   public function registerUser($u_name, $u_email, $u_password, $first_name, $last_name)
   {
    $conn = $this->getConnection();
-   $registerQuery = "insert into user (Email, Username, Password, Firstname, Lastname) values (:Email, :Username, :Password, :Firstname, :Lastname)";
-   $q = $conn->prepare($registerQuery);
-   $q->bindParam(":Username", $u_name);
-   $q->bindParam(":Email", $u_email);
-   $q->bindParam(":Password", $u_password);
-   $q->bindParam(":Firstname", $first_name);
-   $q->bindParam(":Lastname", $last_name);
-   $q->execute();
+    $Query = "SELECT * FROM user WHERE Username = ? && Email = ?";
+    $q1 = $conn ->prepare($Query);
+    $q1->execute([$u_name,$u_email]);
+    $valid = $q1->fetch();
+      
+      if(empty($valid))
+      {
+          $conn = $this->getConnection();
+          $registerQuery = "insert into user (Email, Username, Password, Firstname, Lastname) values (:Email, :Username, :Password, :Firstname, :Lastname)";
+          $q = $conn->prepare($registerQuery);
+          $q->bindParam(":Username", $u_name);
+          $q->bindParam(":Email", $u_email);
+          $q->bindParam(":Password", $u_password);
+          $q->bindParam(":Firstname", $first_name);
+          $q->bindParam(":Lastname", $last_name);
+          $q->execute();
+          $_SESSION['messages'] = "You are registered";
+          header("Location: Login.php");
+      }
+      else{
+          $_SESSION['exists'] = "Your user name or email already exists!";
+          header("Location: Register.php");
+      }
   }
 }

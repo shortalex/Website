@@ -4,8 +4,8 @@
     
     require_once 'Dao.php';
     
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     
     $dao = new Dao();
     $valid = $dao->isValidUser($username, $password);
@@ -18,7 +18,6 @@
        $loginvalid = true;
     }
 
-    $_SESSION = array();
     if ($loginvalid) {
         $_SESSION['log_message'] = "Welcome ".$username."!";
         $_SESSION['log_in'] = true;
@@ -30,6 +29,7 @@
     {
 
     $_SESSION['notlog_message'] = "Invalid username or password";
+    $_SESSION['user_name'] = $username;
     header("Location: Login.php");
     exit();
     }
