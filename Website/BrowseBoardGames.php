@@ -1,4 +1,7 @@
-
+<?php
+  session_start();
+  echo ($_SESSION['log_message']);
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -10,8 +13,9 @@
   <title>Browse Board Games</title>
 </head>
 <body>
-   <a id="RegisterAndLoginRight" href="Register.php">Register</a>
-   <a id="RegisterAndLoginRight" href="Login.php">Login</a>
+<a id="RegisterAndLoginRight" href="logout_handler.php">Log out</a>
+   <a id="RegisterAndLoginRight" href="Register.php">Register |</a>
+   <a id="RegisterAndLoginRight" href="Login.php">Login |</a>
     <div>
         <img src="Logo.png" alt="Game Logo" width="10%" height="10%">
         <h1 style="display: inline;">The Board Game For Me</h1>
