@@ -1,10 +1,10 @@
 <?php
 
 class Dao {
-  private $host = 'bqmayq5x95g1sgr9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-  private $dbname = 'jcjm72kbv4vyjxzj';
-  private $username = 'jtd67j9jx2zd0mv9';
-  private $password = 'xqluha81v2i8wuhn';
+  private $host = 'xefi550t7t6tjn36.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+  private $dbname = 'lc21acry1dwuj1mk';
+  private $username = 'f6sl32mav9ykpww2';
+  private $password = 'waj3pfigr5ng76ky';
   private $logger;
   
   public function getConnection() {
@@ -19,10 +19,10 @@ class Dao {
   public function getComments() {
     $conn = $this->getConnection();
     try {
-    return $conn->query("select ChatID, Username, Chat, PostDate from comment order by date_entered desc", PDO::FETCH_ASSOC);
+    return $conn->query("select ChatID, Username, Chat, PostDate from chat order by date_entered desc", PDO::FETCH_ASSOC);
     } catch(Exception $e) {
       echo print_r($e,1);
-      exit;
+      exit();
     }
   }
 
@@ -51,7 +51,7 @@ class Dao {
     $q->bindParam(":id", $id);
     $q->execute();
   }
-    
+
   public function registerUser($u_name, $u_email, $u_password, $first_name, $last_name)
   {
    $conn = $this->getConnection();
@@ -79,4 +79,20 @@ class Dao {
           header("Location: Register.php");
       }
   }
+    public function registerMeet($user_name, $b_name, $g_type, $player_num, $location)
+    {
+            $conn = $this->getConnection();
+            $registerMeetQ = "insert into meet (Username, GameName, GameType, NumPlayers, Loction) values (:Username, :GameName, :GameType, :NumPlayers, :Location)";
+            $q = $conn->prepare($registerMeetQ);
+            $q->bindParam(":Username", $user_name);
+            $q->bindParam(":GameName", $b_name);
+            $q->bindParam(":GameType", $g_type);
+            $q->bindParam(":NumPlayers", $player_num);
+            $q->bindParam(":Location", $location);
+            $q->execute();
+            $_SESSION['meetMessages'] = "You have posted an invite";
+            header("Location: PlayNow.php");
+
+    }
+    
 }

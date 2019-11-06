@@ -22,8 +22,9 @@
         $_SESSION['log_message'] = "Welcome ".$username."!";
         $_SESSION['log_in'] = true;
         $_SESSION['user_name'] = $username;
+        $_SESSION['check'] = "login";
         header("Location: index.php");
-    exit();
+        exit();
     }
     else
     {

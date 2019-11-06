@@ -54,5 +54,5 @@
          echo "</table>";
     ?>
   </body>
-<footer>Copyright 2019</footer>
+<footer>Copyright @ 2019 | alexharris@u.boisestate.edu</footer>
 </html>

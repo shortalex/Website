@@ -37,9 +37,9 @@
 ?>
 <h2>Search Board Games</h2>
 <div class="form">
-    <form name="Form1" action="mypage.asp" method="get">
+    <form name="Form1" action="https://www.google.com/" method="get">
       Search: <input type="text" name="fname">
-      <div><button type="button">Search</button></div>
+       <div><button type="get">Submit</button></div>
     </form>
 </div>
 </body>

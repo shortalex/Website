@@ -27,6 +27,7 @@
   session_start();
   echo ($_SESSION['log_message']);
     echo ($_SESSION['exists']);
+    echo ($_SESSION['text']);
     
 ?>
 <h2>Register</h2>

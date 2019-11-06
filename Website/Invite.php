@@ -1,4 +1,6 @@
-
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -31,18 +33,18 @@
     </ul>
   </div>
 <?php
-  session_start();
   echo ($_SESSION['log_message']);
+    echo ($_SESSION['meetMessages']);
 ?>
 <h2>Search Board Games</h2>
 <div class="form">
-    <form name="Form1" action="mypage.asp" method="get">
-      <p>Username: Username</p>
-      <div>What Board Game: <input type="text" name="boardgame"></div>
-      <div>Type of Board Game: <input type="text" name="type"></div>
-      <div>How Many Players Are Needed: <input type="text" name="players"></div>
-      <div>Where Are You Playing: <input type="text" name="where"></div>
-      <div><button type="button">Search</button></div>
+    <form name="Form2" action="Invite_handler.php" method="Post">
+      <p>Username: <?php echo ($_SESSION['user_name']); ?></p>
+      <div>What Board Game: <input type="text" name="boardgame" value="<?php if(isset($_SESSION['boardgame'])) { echo htmlentities ($_SESSION['boardgame']); }?>" required></div>
+      <div>Type of Board Game: <input type="text" name="gtype" value="<?php if(isset($_SESSION['gtype'])) { echo htmlentities ($_SESSION['gtype']); }?>"></div>
+      <div>How Many Players Are Needed: <input type="text" name="players" value="<?php if(isset($_SESSION['players'])) { echo htmlentities ($_SESSION['players']); }?>" required></div>
+      <div>Where Are You Playing: <input type="text" name="where"value="<?php if(isset($_SESSION['where'])) { echo htmlentities ($_SESSION['where']); }?>" required></div>
+      <div><button type="POST">Submit</button></div>
     </form>
 </div>
 <img id="i01" src="idaho-google-maps-18.gif" alt="Map of Idaho" width="50%" height="50%">

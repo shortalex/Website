@@ -1,4 +1,6 @@
-
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -31,8 +33,9 @@
       </ul>
     </div>
 <?php
-  session_start();
   echo ($_SESSION['log_message']);
+    echo ($_SESSION['test']);
+    echo ($_SESSION['meetMessages']);
 ?>
     <img id="i01" src="idaho-google-maps-18.gif" alt="Map of Idaho" width="90%" height="100%">
 </body>
