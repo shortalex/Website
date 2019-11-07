@@ -21,7 +21,7 @@ if(isset($_POST['uid'], $_POST['message'])) {
   $uid = htmlentities($_POST['uid']);
   $date = date('Y/m/d h:i:s');
   $message = htmlentities($_POST['message']);
-    $_SESSION['test1']= $message;
+    $_SESSION['post']= " Comment posted.";
 
   $sql = "INSERT INTO comments (uid, date, message)
   VALUES (?, ?, ?)";
@@ -58,7 +58,7 @@ if(isset($_POST['uid'], $_POST['message'])) {
 </div>
 <?php
   echo ($_SESSION['log_message']);
-    echo ($_SESSION['test1']);
+    echo ($_SESSION['post']);
 ?>
 <h2>Chat</h2>
 <div>
