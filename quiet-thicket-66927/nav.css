@@ -1,0 +1,45 @@
+.nav ul {
+  background-color: #0004ff;
+  text-align: center;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #61a2f7;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #006eff;
+}
+ 
+.nav a.active {
+  background-color: #4bc4a9;
+  color: #000000;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 240px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+}
