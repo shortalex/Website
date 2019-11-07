@@ -1,5 +1,12 @@
 <?php
-  session_start();
+// Init session
+session_start();
+if(!isset($_SESSION['log_in']) || $_SESSION['log_in'] !== true){
+        header("location: Login.php");
+        exit();
+    
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
