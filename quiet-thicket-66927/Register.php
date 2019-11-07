@@ -28,6 +28,7 @@
   echo ($_SESSION['log_message']);
     echo ($_SESSION['exists']);
     echo ($_SESSION['text']);
+    echo ($_SESSION['passwordErr']);
     
 ?>
 <h2>Register</h2>
