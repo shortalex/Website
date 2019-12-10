@@ -1,4 +1,6 @@
-
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -7,14 +9,51 @@
   <link rel="shortcut icon" href="/favicon.png" />
   <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="reference.css">
+
+<link href="https://fonts.googleapis.com/css?family=Alatsi|Bebas+Neue|Calistoga&display=swap" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
   <title>Browse Board Games</title>
 </head>
 <body>
-<a id="RegisterAndLoginRight" href="logout_handler.php">Log out</a>
-   <a id="RegisterAndLoginRight" href="Register.php">Register |</a>
-   <a id="RegisterAndLoginRight" href="Login.php">Login |</a>
+<?php
+    if(!isset($_SESSION['log_in']) || $_SESSION['log_in'] !== true){
+        echo '<a id="RegisterAndLoginRight" href="Register.php">Register</a>';
+        echo '<a id="RegisterAndLoginRight" href="Login.php">Login |</a>';
+        
+    }
+    else{
+        echo '<a id="RegisterAndLoginRight" href="logout_handler.php">Log out</a>';
+    }
+?>
     <div>
-        <img src="Logo.png" alt="Game Logo" width="10%" height="10%">
+        <img src="Logo.png" alt="Game Logo" width="8%" height="8%">
         <h1 style="display: inline;">The Board Game For Me</h1>
     </div>
 <div class="nav">
@@ -26,16 +65,43 @@
 </div>
 <div class="nav">
     <ul>
-      <li class="Search Board Games"><a href="index.html">Search Board Games</a></li>
+      <li class="Search Board Games"><a href="index.php">Search Board Games</a></li>
       <li class="Top Board Games"><a href="TopBoardGames.php">Top Board Games</a></li>
       <li class="Browse Board Games"><a class="active" href="BrowseBoardGames.php">Browse Board Games</a></li>
     </ul>
   </div>
 <?php
-  session_start();
   echo ($_SESSION['log_message']);
 ?>
 <h2>Browse Board Games</h2>
+<a href="#a">A</a>
+<a href="#b">B</a>
+<a href="#c">C</a>
+<a href="#d">D</a>
+<a href="#e">E</a>
+<a href="#f">F</a>
+<a href="#g">G</a>
+<a href="#h">H</a>
+<a href="#i">I</a>
+<a href="#j">J</a>
+<a href="#k">K</a>
+<a href="#l">L</a>
+<a href="#m">M</a>
+<a href="#n">N</a>
+<a href="#o">O</a>
+<a href="#p">P</a>
+<a href="#q">Q</a>
+<a href="#r">R</a>
+<a href="#s">S</a>
+<a href="#t">T</a>
+<a href="#u">U</a>
+<a href="#v">V</a>
+<a href="#w">W</a>
+<a href="#x">X</a>
+<a href="#y">Y</a>
+<a href="#z">Z</a>
+
+<div id="a">A</div>
 <table id="t01">
   <tr>
     <th>Game</th>
@@ -58,6 +124,99 @@
     <td>Rating</td>
   </tr>
 </table>
+<div id="b">B</div>
+<table id="t01">
+  <tr>
+    <th>Game</th>
+    <th>Description</th>
+    <th>Rating</th>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+</table>
+<div id="c">C</div>
+<table id="t01">
+  <tr>
+    <th>Game</th>
+    <th>Description</th>
+    <th>Rating</th>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+</table>
+<div id="d">D</div>
+<table id="t01">
+  <tr>
+    <th>Game</th>
+    <th>Description</th>
+    <th>Rating</th>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+</table>
+<div id="e">E</div>
+<table id="t01">
+  <tr>
+    <th>Game</th>
+    <th>Description</th>
+    <th>Rating</th>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+  <tr>
+    <td><img src="BoardGamePic.jpg" alt="Game Night" width="15%" height="10%"><span>Board Game Name</span></td>
+    <td>Description</td>
+    <td>Rating</td>
+  </tr>
+</table>
 </body>
 <footer>Copyright @ 2019 | alexharris@u.boisestate.edu</footer>
 </html>
+

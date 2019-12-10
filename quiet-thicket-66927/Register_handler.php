@@ -39,8 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             header("Location: Register.php");
     }
     else{
-    
-    
+        $u_password = md5($_POST['password']);
         require_once 'Dao.php';
         $dao = new Dao();
         $dao->registerUser($u_name, $u_email, $u_password, $first_name, $last_name);

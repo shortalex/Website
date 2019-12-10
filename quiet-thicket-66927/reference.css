@@ -4,11 +4,13 @@ body {
 
 }
 h1 {
-	font-family: "Arial";
+	font-family: 'Bebas Neue', cursive;
+    font-family: 'Calistoga', cursive;
+    font-family: 'Alatsi', sans-serif;
 	text-align: center;
     color: #000000;
     margin-left: 100px;
-    font-size: 50px;
+    font-size: 60px;
 }
 h2 {
 	font-family: "Times";

@@ -27,10 +27,17 @@
   color: #000000;
   cursor: default;
 }
+
+#header {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
  
 @media screen and (min-width: 600px) {
   .nav li {
-    width: 240px;
+    width: 260px;
     border-bottom: none;
     height: 50px;
     line-height: 50px;
